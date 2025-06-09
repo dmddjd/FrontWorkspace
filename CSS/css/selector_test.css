@@ -1,0 +1,57 @@
+/* 문제2 */
+#container2>p{
+    color: red;
+}
+#container2>pre>p{
+    color: pink;
+}
+/* 문제3 */
+#container3>input:not([type=submit]){
+    border: 1px solid blue;
+}
+/* 문제4 */
+#container4>h1{
+    color: green;
+    font-size: 20px;
+}
+#container4>h1+p{
+    color: green;
+    font-size: 20px;
+}
+
+/* 문제5 */
+div[class^=user]{
+    background-color: lightgray;
+}
+div[class$=info]{
+    color: red;
+}
+div[class~=product]{
+    background-color: coral;
+}
+div[class|=admin]{
+    background-color: greenyellow;
+}
+/* 문제6 */
+#container6:hover{
+    background-color: yellow;
+}
+#container6:active{
+    background-color: green;
+}
+/* 문제7 */
+#container7>li:nth-of-type(2){
+    font-weight: bold;
+}
+/* 문제8 */
+div[class=container8]>p{
+    color: blue;
+}
+/* 문제9 */
+#container9>p[title|=important]{
+    background-color: red;
+}
+/* 문제10 */
+#menu>li[class=active]{
+    color: red;
+}
