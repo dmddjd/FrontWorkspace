@@ -1,25 +1,20 @@
-/* 문제2 */
-#container2>p{
+/* 2 */
+div>p{
     color: red;
 }
-#container2>pre>p{
+div>pre>p{
     color: pink;
 }
-/* 문제3 */
+/* 3 */
 #container3>input:not([type=submit]){
     border: 1px solid blue;
 }
-/* 문제4 */
-#container4>h1{
+/* 4 */
+#container4>h1, #container4>.title{
     color: green;
     font-size: 20px;
 }
-#container4>h1+p{
-    color: green;
-    font-size: 20px;
-}
-
-/* 문제5 */
+/* 5 */
 div[class^=user]{
     background-color: lightgray;
 }
@@ -32,26 +27,26 @@ div[class~=product]{
 div[class|=admin]{
     background-color: greenyellow;
 }
-/* 문제6 */
-#container6:hover{
+/* 6 */
+#container6>input:focus{
     background-color: yellow;
 }
-#container6:active{
+#container6:hover{
     background-color: green;
 }
-/* 문제7 */
+/* 7 */
 #container7>li:nth-of-type(2){
     font-weight: bold;
 }
-/* 문제8 */
-div[class=container8]>p{
+/* 8 */
+.container8>p:only-of-type{
     color: blue;
 }
-/* 문제9 */
-#container9>p[title|=important]{
+/* 9 */ /* 이건 머지 */
+#container9>p[title*=important]:not(p[title*=not-important]){
     background-color: red;
 }
-/* 문제10 */
+/* 10 */
 #menu>li[class=active]{
     color: red;
 }
