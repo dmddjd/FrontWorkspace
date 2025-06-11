@@ -28,7 +28,7 @@
     height: 472px;
 }
 .div-1{
-    /* width 기본값 : 부모 width의 100%*/
+    /*width 기본값 : 부모 width의 100%*/
     height: 30%;
 }
 .div-2{
@@ -72,12 +72,12 @@
     width: 350px;
     height: 250px;
 }
-.fuck1{
+.hello1{
     display: inline-block;
     width: 50%;
     height: 100%;
 }
-.fuck2{
+.hello2{
     display: inline-block;
     width: 50%;
     height: 100%;
@@ -87,4 +87,15 @@
 }
 #container-3>div:last-child{
     background-color: steelblue;
+}
+/* display : none */
+.div-4{
+    border: 3px solid black;
+    height: 100px;
+}
+#test4{
+    background-color: deeppink;
+    /* display: none; */
+    /* visibility: hidden; */
+    opacity: 0.1;
 }
