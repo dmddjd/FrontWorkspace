@@ -1,0 +1,77 @@
+/*공통 영역*/
+.div-1{background-color: red;}
+.div-2{background-color: orange;}
+.div-3{background-color: yellow;}
+.div-4{background-color: green;}
+.div-5{background-color: blue;}
+
+/*block -> inline*/
+.BlockToInline{
+    width: 100px; /*block요소가 inline요소로 변경될 시 기존의 width, height는 */
+    height: 100px; /*의미를 잃고 내용물의 크기만큼 범위가 재설정됨*/
+    display: inline; /*열 분할*/
+}
+
+/*inline -> block*/
+.InlineToBlock{
+    width: 100px; /*block요소로 변경 전 inline 요소는 */
+    height: 100px; /*width, height가 무의미하다*/
+    display: block; /*행 분할*/
+}
+
+/*inline-block*/
+.inline-block{
+    width: 100px; /*block요소가 inline-block요소로 변경될 시*/
+    height: 100px; /*기존의 width, height를 유지함 */
+    display: inline-block; /*행 열 분할*/
+}
+.Inline-Block{
+    width: 100px; /*block요소로 변경 전 inline 요소는*/
+    height: 100px; /*width, height가 무의미하다*/
+    display: inline-block; /*행 열 분할*/
+}
+
+/*
+    화면 분할 연습
+*/
+/*상-하 2분할*/
+#practice-1>.div-1{
+    width: 100px;
+    height: 100px;
+}
+#practice-1>.div-2{
+    width: 100px;
+    height: 100px;
+}
+/*상-하 3분할*/
+#practice-2>.div-1{
+    width: 100px;
+    height: 100px;
+}
+#practice-2>.div-2{
+    width: 100px;
+    height: 100px;
+}
+#practice-2>.div-3{
+    width: 100px;
+    height: 100px;
+}
+/*좌-우 2분할*/
+#practice-3 div{
+    display: inline;
+    display: inline-block;
+}
+#practice-3>.div-1{
+    width: 100px;
+    height: 100px;
+}
+#practice-3>.div-2{
+    width: 100px;
+    height: 100px;
+}
+.div-4{
+    height: 100px;
+}
+#test4{
+    background-color: back;
+}
