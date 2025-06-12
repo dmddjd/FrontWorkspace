@@ -1,0 +1,88 @@
+/*
+    요소의 여백과 관련된 속성
+*/
+.box{
+    background-color: pink;
+    width: 100px;
+    height: 100px;
+}
+.content{
+    width: 130px; /*width, height 값은*/
+    height: 130px; /*content영역의 크기를 지정한다.*/
+}
+.padding{
+    border: 1px solid black;
+    padding: 10px;
+    /*요소의 width, height 크기가 20px씩 증가한다.*/
+}
+.border{
+    border: 15px solid black;
+    /*요소의 width, height 크기가 30px씩 증가한다.*/
+}
+.margin-1{
+    margin: 40px; 
+}                 /*다른 요소와 margin 값이 겹치는 경우*/
+.margin-2{        /*더 큰 요소의 값이 적용된다.*/
+    margin: 10px;
+}
+
+/*
+    padding, border, margin의 방향성
+*/
+
+.padding-test{
+    padding-top: 15px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 40px;
+
+    /*특정 방향에 별도의 크기 부여*/
+    /*속성값이 1개인 경우 : 상하좌우 동일한 크기 부여여*/
+    padding: 15px;
+    /*속성값이 2개인 경우 : 상하, 좌우 크기 부여*/
+    padding: 20px 40px ;
+    /*속성값이 3개인 경우 : 상, 좌우, 하 크기 부여*/
+    padding: 15px 50px 100px;
+    /*속성값이 4개인 경우 : 상, 우, 하, 좌 크기 부여여*/
+    padding: 10px 20px 30px 40px;
+}
+.border-test{
+    border: 1px solid black;
+
+    /*특정 방향에 별도로 테두리 부여*/
+    border-width: 20px 10px 5px 2px;
+    border-top-width: 30px;
+    border-bottom: 40px solid red;
+    border-left: 10px dashed blue;
+}
+.margin-test{
+    margin-top: 40px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+}
+#margin-auto-test{
+    border: 1px solid black;
+    width: 300px;
+    height: 200px;
+}
+.margin-auto-test{
+    margin: 20px auto;
+}
+/*
+    box-sizing
+*/
+#box-sizing{
+    border: 10px solid black;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    /*border-box
+        content, border, padding 부여 시
+        정해진 width, height 내부에서 적용된다.
+
+    content-box(기본값)
+        content, border, padding 부여 시
+        정해진 width, height 내부에서 적용된다.
+    */
+}
