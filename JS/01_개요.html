@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./js/sample.js"></script>
+    <title>개요</title>
 </head>
 <body>
     <!--
@@ -36,21 +35,78 @@
     <h1>1. 자바스크립트 사용 방법</h1>
     <ol>
         <li>
-            inline 방식 : 이벤트를 부여하고자 하는 요소 내에 간단한 소스코드를 작성해서 실행하는 방법<br>
+            inline 방식 : 이벤트를 부여하고자 하는 요소 내에 간단한 소스코드를 작성해서 실행하는 방법
             <input type="button" value="실행1" 
             onclick="console.log('안녕하세요')">
         </li>
         <li>
-            internal 방식 : 현재 문서 내부에서 script 태그 영역에 소스코드를 작성하여 실행하는 방법<br>
+            internal 방식 : 현재 문서 내부에서 script 태그 영역에 소스코드를 작성하여 실행하는 방법
             <input type="button" value="실행2"
             onclick="abc();">
         </li>
         <li>
-            xternal 방식 : 현재 문서 외부에서 별도의 js 파일을 생성한 후 가져다 쓰는 방법<br>
+            xternal 방식 : 현재 문서 외부에서 별도의 js 파일을 생성한 후 가져다 쓰는 방법
             <input type="button" value="실행3"
             onclick="test();">
         </li>
     </ol>
+    <button id="btn">콘솔창 출력</button>
+    <script>
+        // 내부방식만으로 요소에 이벤트 부여하기
+        //  - 어떤 요소에 어떤 이벤트가 발생할 지 정하고
+        //  - 그 이벤트가 실행될 때의 동작을 정의
+        document.querySelector("#btn").onclick = function(){console.log("안녕하세요")}
+    </script>
+
+    <h2>2. 자바스크립트의 자료형</h2>
+    <button onclick="dataType();">자료형</button>
+    <script>
+        function dataType(){
+            // 변수 선언시 사용되는 키워드
+            //  - var(es5)
+            //  - let, const(es6)
+            // 값이 대입될 때 변수의 타입이 결정된다.
+
+            // 1) undefined
+            var i;
+            console.log(i, typeof(i));
+
+            i = 100;
+            i = 1.23;
+            console.log(i, typeof(i));
+
+            i = "안녕하세요";
+            console.log(i, typeof(i));
+
+            i = true;
+            console.log(i, typeof(i));
+
+            // js에서는 function도 자료형으로 취급된다.
+            i = function(x,y){
+                return x+y
+            };
+            console.log(i, typeof(i), i(1,2));
+
+            // 객체(object) 자료형
+            // 배열도 하나의 객체이다.
+            i = [1,2,3,4]; // List<Object>와 비슷
+            console.log(i, typeof(i));
+
+            i = {
+                name : "치킨",
+                taste : "후라이드",
+                price : 19000
+            } // Map<String|Number, Object>
+            console.log(i, typeof(i));
+            
+            // null
+            i = null; // object 자료형
+            console.log(i, typeof(i))
+
+        }
+    </script>
+
+    <script src="./js/sample.js"></script>
     <script>
         function abc(){
             alert('버튼클릭했나요?');
@@ -58,4 +114,3 @@
     </script>
 </body>
 </html>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
