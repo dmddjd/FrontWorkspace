@@ -29,7 +29,6 @@
 /*
     padding, border, margin의 방향성
 */
-
 .padding-test{
     padding-top: 15px;
     padding-bottom: 40px;
@@ -68,6 +67,7 @@
 .margin-auto-test{
     margin: auto;
 }
+
 /*
     box-sizing
 */

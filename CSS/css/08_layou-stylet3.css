@@ -42,7 +42,7 @@ div{
     width: 400px;
     height: 200px;
 }
-.test-1{
+.col-1{
     width: 50%;
     height: 100%;
     float: left;
@@ -53,11 +53,10 @@ div{
     width: 400px;
     height: 200px;
 }
-
-.low{
+.row-2{
     height: 50%;
 }
-.test-2{
+.col-2{
     width: 50%;
     height: 100%;
     float: left;
@@ -68,19 +67,11 @@ div{
     width: 400px;
     height: 400px;
 }
-.low-2{
-    float: left;
-}
-.div-5{
-    width: 100%;
+.row-3{
     height: 50%;
 }
-.div-6{
-    
-}
-.div-7{
-    
-}
-.div-8{
-    
+.col-3{
+    float: left;
+    width: 50%;
+    height: 100%;
 }

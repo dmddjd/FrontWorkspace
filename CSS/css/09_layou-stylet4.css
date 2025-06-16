@@ -1,0 +1,59 @@
+/*배치 연습 1*/
+.practice-1{
+    border: 1px solid black;
+    position: relative;
+}
+.first{
+    border: 1px solid black;
+    background-color: red;
+    width: 300px;
+    height: 300px;
+}
+.secend{
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+
+}
+.third{
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+/*배치 연습 2*/
+
+.practice-2{
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+.center{
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/*배치 연습 3*/
+.practice-3{
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}

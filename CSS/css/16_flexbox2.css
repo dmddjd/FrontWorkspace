@@ -1,0 +1,18 @@
+.flex-container{
+    height: 85vh;
+    display: flex;
+    flex-wrap: wrap;
+
+    align-content: flex-start;
+    align-content: flex-end;
+    align-content: center;
+    align-content: space-around;
+    align-content: space-evenly;
+    align-content: space-between;
+    /*
+        align-content
+        cross axis 방향으로 포장된 item들을 정렬하는 속성
+        item들이 반드시 wrap 또는 wrap-reverse 상태여야 한다.
+        justify-content의 속성값과 동일한 값들을 사용할 수 있다.
+    */
+}

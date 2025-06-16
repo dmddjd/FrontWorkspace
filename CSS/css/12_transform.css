@@ -78,7 +78,7 @@ img{
 }
 .test3{
     transition-duration: 3s;
-    transition-timing-function: ease-in-out;
+    transition-timing-function:ease-in-out;
 }
 .test3:hover{
     transform: rotate(360deg);
@@ -86,10 +86,10 @@ img{
 }
 .test4{
     transition-delay: 1s;
-    transition-property: background-color;
+    transition-property: transform;
     /*변형시간을 적용시키고싶은 속성을 개별적으로 선택*/
 }
 .test4:hover{
     transform: translateX(100px);
-    background-color: springgreen;
+    background-color: yellow;
 }
