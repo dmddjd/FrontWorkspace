@@ -52,7 +52,7 @@
     </script>
     <h1>Hoisting</h1>
     <script>
-        // var ab; var키워드 변수는 script최상단으로 hosting(끌어올려짐)된다.
+        // var ab; var키워드 변수는 script최상단으로 hoisting(끌어올려짐)된다.
         // function foo; 함수 선언식으로 작성된 함수는 hoisting된다.
         console.log(ab);
         var ab = "헬로";
@@ -62,7 +62,7 @@
             console.log("호이스팅");
         }
 
-        // bar();
+        // var();
         // 함수 표현식
         //  - 함수를 값으로 사용한 경우
         var bar = function (){

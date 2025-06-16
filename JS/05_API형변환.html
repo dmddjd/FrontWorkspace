@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - String | Math | Date</title>
+</head>
+<body>
+    <h1>js api들</h1>
+    <h1>String</h1>
+    <input type="button" value="실행" onclick="test1();">
+    <input type="button" value="@실습문제" onclick="test2();">
+    <script>
+        // String 내장 객체
+        function test1(){
+            var str = "Samsung Apple Xiomi";
+            console.log(str.length); // length 속성
+            console.log(str.toUpperCase());
+            console.log(str.indexOf("m"));
+            console.log(str.lastIndexOf("i"));
+            console.log(str.charAt(0));
+            console.log(str[0]); // 문자열로 취급
+
+            // 문자열의 일부 문자를 리턴
+            console.log(str.substr(2,2));
+            console.log(str.substr(2));
+
+            var arr = str.split(" ");
+            console.log(arr);
+        }
+
+        function test2(){
+            /* 
+                두개의 인자 문자열과 문자를 입력받고,
+                문자열에서 문자가 몇번 출현하는지 리턴하는 함수를 생성
+                countChar("hahaha", "a") => 3
+                countChar("abccba", "c") => 2
+                countChar("abcde", "x") => 0
+            */
+            var str = "hahaha";
+            var ch = "a";
+            function countChar(str,ch){
+                let count = 0;
+                for(let i=0; i<str.length; i++){
+                    if(ch == str[i]){
+                        count++;    
+                    }
+                }
+                return count;
+           }
+        }
+    </script>
+    <hr>
+
+    <h1>Math</h1>
+        <input type="button" value="실행" onclick="test3();">
+        <script>
+            const test3 = function(){
+                let num = 123.456;
+
+                console.log(Math.round(num));
+                console.log(Math.ceil(num));
+                console.log(Math.floor(num));
+                console.log(Math.random());
+            };
+        </script>
+    <input type="button" value="@실습문제" onclick="test4();">
+    <ul id="test-random">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+            function test4(){
+                /*
+                    test-random 하위의 li태그에 1~100사이의 난수를 대입하시오.
+                    단, 짝수라면 글자색을 예쁘게 할 것.
+                */
+                var list = document.querySelectorAll("#test-random>li");
+                for(i=0; i<list.length; i++){
+                    let random = Math.floor((Math.random()*100+1));
+                    list[i].innerHTML = random
+                    if(random % 2 == 0){
+                        list[i].style.color = "red";
+                    }
+                }
+                console.log(list);
+            }
+    </script>
+
+    <h1>Date</h1>
+    <input type="button" value="실행" onclick="test5()">
+    <script>
+        function test5(){
+            var now = new Date();
+            console.log(now);
+        
+            var item1 = new Date(2025, 5, 16);
+            console.log(item1);
+            
+            console.log(displayDateTime(now));
+        }
+
+        var displayDateTime = function(dt){
+            const year = dt.getFullYear();
+            const month = dt.getMonth()+1;
+            const date = dt.getDate();
+            return year+"-"+(month<10 ? "0"+month : month)+"-"+(date<10 ? "0"+date : date);
+        }
+    </script>
+    
+    <h2>형변환</h2>
+    <input type="button" value="실행" onclick="test6()">
+    <script>
+        const test6 = function(){
+            console.log(3+7+"7"); // 107
+            console.log(7-"7"); // 0
+            console.log(7*"7"); // 49
+            console.log(7/"7"); // 1
+            console.log(7%"4"); // 3
+            //자동 형변환
+            console.log(7%"a"); // NaN(Not a Number) 파싱 불가능한 문자를 숫자로 형변환시 반환
+            console.log(typeof(NaN)); // 자료형 : number
+            console.log(7+true); // true : 1
+            console.log(7+false) // false : 0
+            
+            console.log([]+1); // []+1 => [].toString() => ''+1 => 1(String)
+            console.log([]*2); // 2(number)
+            console.log([].toString()) //
+
+            console.log({}+1); // {}+1 => {}.toString() => 문자열+1
+            console.log({}*2); // NaN
+            console.log({}.toString()); 
+
+            function fn(){};
+            console.log(fn+1);
+        }
+    </script>
+
+    <h2>Number|parseInt|parseFloat</h2>
+    <input type="button" value="실행" onclick="test7()">
+    <script>
+        const test7 = function(){
+            let num = "1234.567원";
+            console.log(Number(num)); // 자동형변환시 사용되는 메서드. 변환불가능한 문자열인 경우 NaN 리턴
+            console.log(parseInt(num)); // 변환 가능한 정수 범위까지 변환
+            console.log(parseFloat(num)); // 변환 가능한 실수 범위까지 변환
+        }
+    </script>
+
+    <h2>NaN|Infinity</h2>
+    <input type="button" value="실행" onclick="test8()">
+    <script>
+        const test8 = function(){
+            console.log(-10/0); // 값을 0으로 나누는 경우 infinity 반환 type = number
+            console.log(10/0 == Infinity); // true
+            console.log(10/"a" == NaN); // NaN : 동등비교시 NaN 반환
+            console.log(isNaN(10/"a")); // true : 산술연산 결과가 NaN인지 확인하는 함수
+        }
+    </script>
+
+    <h2>논리형 형변환</h2>
+    <input type="button" value="실행" onclick="test9()">
+    <script>
+        const test9 = function(){
+            /*
+                js에는 변수, 리터럴을 boolean으로 형변환 가능
+               
+                값이 존재하지 않는 것은 flase로 치환
+                 - 0, -0, 0.0, "", undefined, null, NaN
+                값이 존재하는 것은 true로 치환
+                 - 123, 123.456, "하이", new Date(), [], {}
+                
+                if(값), 삼항연산자
+                Boolean(값)
+            */
+            console.log("----- true -----");
+            console.log(Boolean(123));
+            console.log(Boolean(-123));
+            console.log(Boolean(3.14));
+            console.log(Boolean("ABCED"));
+            console.log(Boolean(new Date()));
+            console.log(Boolean([])); // new Array()
+            console.log(Boolean({})); // new Object()
+            console.log("----- false -----");
+            console.log(Boolean(0));
+            console.log(Boolean(""));
+            console.log(Boolean(undefined));
+            console.log(Boolean(null));
+            console.log(Boolean(NaN));
+            
+            var obj ="";
+            if(obj){
+                console.log("obj에 값이 있다");
+            }else{
+                console.log("obj에 값이 없다");
+            }
+
+            console.log("0" == 0);
+            // "0" == 0 => Number("0") == 0 => true
+            console.log([] == 0);
+            // [].toString == 0 => Number('') == 0 => true
+            console.log([] == "0");
+            // '' == "0" => false
+        }
+    </script>
+
+    <h2>엄격 비교연산자</h2>
+    <input type="button" value="실행" onclick="test10()">
+    <script>
+        /*
+            일반 동등비교연산자
+             ==, != : 자료형이 다른 경우 자동 형변환 후 동등비교 수행
+
+            엄격 동등비교연산자
+             ===, !== : 값, 타입 모두 동등비교 수행 
+        */
+        const test10 = function(){
+            console.log(3 == "3"); // true
+            console.log(3 != "3"); // false
+            console.log(3 === "3"); // false
+            console.log(3 !== "3"); // true
+
+            console.log(null == undefined); // false == false => true
+            console.log(null === undefined); // false
+        }
+    </script>
+
+    <h2>짧은 조건문</h2>
+    <input type="button" value="실행" onclick="test11()">
+    <script>
+        
+        const test11 = function(){
+            let num = 10;
+            // if(num % 2 === 0){
+            //     console.log("짝수");
+            // }else{
+            //     console.log("홀수");
+            // }
+            // 짧은 조건문
+            // 조건식A && 조건식B(or실행할 코드)
+            num % 2 == 0 && console.log("짝수");
+            num % 2 != 0 && console.log("홀수");
+            // 조건식A || 조건식B
+        }
+    </script>
+</body>
+</html>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

@@ -1,0 +1,80 @@
+/*public place start*/
+img{
+    width: 70%;
+    height: 50%;
+}
+body{
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ddd;
+}
+/*public place end*/
+/*head place start*/
+.head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+    width: 85%;
+}
+.page-title{
+    color: white;
+}
+.search-bar{
+    width: 400px;
+    margin: 10px;
+}
+.search-button{
+    background-color: darkgray;
+}
+/*head place end*/
+/*body place start*/
+.body{
+    display: flex;
+    text-align: center;
+    width: 85%;
+}
+.body-1{
+    width: 80%;
+    display: flex;
+    flex-direction: column;      
+}
+.books{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+}
+.books>div{
+    border: 2px solid lightgray;
+    background-color: white;
+    width: 20%;
+    height: 200px;
+    margin: 10px;
+}
+.put-cart{
+    background-color: black;
+    color: white;
+}
+.body-2{
+    width: 20%;
+    background-color: white;
+    border: 2px solid lightgray;
+    margin: 10px;
+}
+/*bodyplace end*/
+/*foot place start*/
+.foot{
+    background-color: black;
+    color: white;
+    text-align: center;
+    align-content: center;
+    width: 85%;
+}
+/*foot place end*/
