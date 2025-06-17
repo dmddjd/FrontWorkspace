@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window</title>
+    <style>
+        #clock {
+            font-size : 3em;
+            text-shadow : 3px 3px 7px #000;
+        }
+        #countdown {
+            border: 3px solid #000;
+            font-size : 30em;
+            padding: 10px;
+            text-align : center;
+            /* display : none; */
+        }
+    </style>
+</head>
+<body>
+    <h1>Window</h1>
+    <h2>1. 웹페이지 구조</h2>
+    <img src="window.png" alt="">
+    <hr>
+
+    <h2>2. Method</h2>
+    <input type="button" value="open" onclick="test1();">
+    <input type="button" value="popup 닫기" onclick="test2();">
+    <input type="button" value="setTimeout" onclick="test3();">
+    <input type="button" value="실습문제" onclick="test4();">
+    <input type="button" value="clearTimeout" onclick="test5();">
+    <input type="button" value="setInterval" onclick="test6();">
+    <input type="button" value="실습문제" onclick="test7();">
+    <hr>
+
+    <div id="clock"></div>
+    <div id="countdown"></div>
+
+    <script>
+        /*
+            window
+             - 웹 브라우저에 의해 탭마다 하나씩 생성되는 객체
+             - 웹 브라우저상의 최상위 객체
+               단, JS를 실행하는 환경에 따라 존재하지 않을 수 있다.
+             - 브라우저와 관련된 다양한 기능을 제공한다.
+
+            open() : 새 창 열기(새로운 window 생성)
+             - 새 탭으로 열기
+             - 팝업창으로 열기
+            
+            open(url, name, specs)
+             - name : 팝업창의 이름
+             - specs : 문자열 형태로 새 탭의 창크기, 상태표시줄여부, 위치 등을 지정
+        */
+        let window2;
+        function test1(){
+            window2 = window.open("08_함수.html", "_slef2","width=800px, height=500px, top=300px, left=300px");
+            // window2.alert("1");
+        }
+
+        function test2(){
+            window2 && window2.close(); // 윈도우를 닫는 메서드
+        }
+
+        function test3(){
+            /*
+                setTimeout(callbackFunction, millis);
+                 - millis가 지나면 callbackFunction을 실행
+                 - timeoutApi의 메서드들은 비동기적으로 처리된다.
+                   (비동기적 : 작업완료를 기다리지 않는다는 의미)
+            */
+            for(let i=0; i<100; i++){
+                console.log(i);
+            }
+            setTimeout(function(){
+                console.log("안녕하세요");
+            },3000)
+            for(let i=0; i<100; i++){
+                console.log(i);
+            }
+        }
+
+        function test4(){
+            var i = 1;
+            console.log(1, i++); // 1
+            test(i); // 2
+            setTimeout(function(){
+                console.log(2,i++); // 2
+            });
+            console.log(3,i); // 2
+        }
+        function test(i){
+            console.log(i--);
+        }
+
+        function test5(){
+            // clearTimeout : queue에 저장된 timeout함수를 제거하는 함수
+            const timeId = setTimeout(function(){
+                console.log("1초 후 실행하기");
+            },1000)
+            clearTimeout(timeId);
+        }
+
+        function test6(){
+            /*
+                setInterval(callbackfn,millis)
+                 - millis초 마다 callbackfn을 실행하는 함수
+                 - setTimeout과 동일한 비동기 함수
+            */
+            // var num = 1;
+            // setInterval(function(){
+            //     console.log(num++);
+            // },1000);
+            function foo(){
+                const now = new Date();
+                const strFormat = getTimeFormat(now);
+                // 00:00:00
+                document.querySelector("#clock").innerHTML = strFormat;
+            }
+            function getTimeFormat(time){
+                var hh = format(time.getHours());
+                var mm = format(time.getMinutes());
+                var ss = format(time.getSeconds());
+
+                function format(n){
+                    return n < 10 ? "0"+n : n;
+                }
+                return [hh,mm,ss].join(":"); // hh+":"+mm+":"+ss
+            }
+            setInterval(foo,1000);
+        }
+
+        function test7(){
+            console.clear();
+            /*
+                실습문제
+                버튼클릭시 카운트다운하는 함수 만들기
+                10, 9 , 8, 7, 6, 5,... 1..
+                0도달시 카운트다운 종료.
+            */
+            function stopwatch(){
+                let limit = fuck(10);
+                document.querySelector("#countdown").innerHTML = limit;
+            }
+
+            function fuck(n){
+                const arr = [];
+                for(let i = 0; i<=n; i++) {
+                    
+                }
+                console.log(arr);
+            }
+
+            setInterval(stopwatch,1000);
+        }
+    </script>
+</body>
+</html>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
