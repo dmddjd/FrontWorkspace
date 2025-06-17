@@ -73,7 +73,6 @@
         }
     </script>
 
-
     <h2>Array Method</h2>
     <input type="button" value="indexOf" onclick="test3();">
     <input type="button" value="concat" onclick="test4();">
@@ -199,7 +198,7 @@
         };
 
         const test11 = function () {
-            /* 
+            /*
                 splice : 배열 내부의 요소 추가 & 제거
                 splice(시작인덱스, 삭제할 갯수, 추가할요소1,요소2,...)
             */
@@ -214,7 +213,7 @@
             console.log(arr);
         };
 
-        const test12 = function () {
+        const test12 = function() {
             /**
              * prompt를 이용해 사용자의 취미리스트를 입력받으세요.
              * 예) 농구,수영,캠핑,낚시
@@ -321,7 +320,6 @@
             // 1
             document.querySelectorAll("#drink > li")
             .forEach(function(element){
-                //console.dir(element)
                 drink.push(element.innerText);
             });
             console.log(drink);
