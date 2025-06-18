@@ -19,11 +19,10 @@
         }
     </style>
 </head>
-
 <body>
     <h1>Window</h1>
     <h2>웹페이지 구조</h2>
-    <img src="window.png" alt="">
+    <img src="./resources/window.png" alt="">
     <hr>
 
     <h2>Method</h2>
@@ -148,8 +147,101 @@
             inertval종료 -> clearInterval
         */
         function test7(){
-
+            function stopwatch(){
+                const intervalId = setInterval(f, 1000); // 아이디값을 반드시 가져와줘야함
+                let count = 10;
+                function f(){
+                    const countdown = document.querySelector("#countdown")
+                    countdown.innerHTML = count--;
+                    countdown.style.display = "block";
+                    if(count < 0){
+                        clearInterval(intervalId);
+                        countdown.innerHTML= "뻥!";
+                    }
+                }
+            }
         }
     </script>
+    <hr>
+
+    <h2>BOM</h2>
+    <h3>Browser Object Model</h3>
+    <input type="button" value="navigator" onclick="test8();">
+    <input type="button" value="location" onclick="test9();">
+    <input type="button" value="history" onclick="test10();">
+    <input type="button" value="screen" onclick="test11();">
+    <script>
+        // console.log("페이지 로딩시 실행");
+        function test8(){
+            console.clear();
+            /*
+                navigator
+                 - 현재 실행중인 browser에 대한 정보를 가진 객체
+                 - 클라이언트의 브라우저 정보를 확인하여 적합한 콘텐츠를 제공한다.
+            */
+           
+            console.log(navigator);
+        }
+        function test9(){
+            console.clear();
+            /*
+                location
+                 - 브라우저의 주소창과 관련된 정보를가젠 객체
+                 - 브라우저의 URL에서 프로토콜, 호스트네임, 포트번호, 자원경로등을 얻어올 수 있다.
+                 - 브라우저의 URL을 조작하여 다른 값으로 변결시킬 수 있다.
+            */
+           console.log(location);
+           location.reload(); // 새로고침
+        //    location.href="https://naver.com"; // 뒤로가기 가능
+        //    location.replace("https://naver.com"); // 뒤로가기 불가능
+           location.assign("https://naver.com"); // 뒤로가기 가능
+        }
+        function test10(){
+            /*
+                history
+                 - 방문기록과 관련된 정보를 가진 객체
+                
+                1. back() : 뒤로 가기
+                2. forward() : 앞으로 가기
+                3. go(n) : n번째 페이지로 이동하기
+            */
+            console.log(history);
+            history.back();
+        }
+        function test11(){
+            /*
+                screen
+                 - 모니터 관련 정보를 가진 객체
+            */
+           console.log(screen);
+        }
+    </script>
+    <hr>
+
+    <h2>DOM</h2>
+    <img src="./resources/DOM.png" alt="">
+
+    <input type="button" value="createElement" onclick="test12();">
+    <input type="button" value="createImg" onclick="test13();">
+    <input type="button" value="deleteNode" onclick="deleteNode(this);">
+    <input type="button" value="실습문제" onclick="test14();">
+    <div class="img-wrapper"></div>
+    <div class="result"></div>
+    <script>
+        /*
+            Node객체
+            - 모든 DOM객체는 Node객체를 상속받는다.
+            - html내부에 작성하는 문자열, 태그, 주석 모두 Node객체가 된다.
+            - 모든 html요소는 node의 메서드를 사용할 수 있고,
+              EventTarget의 이벤트 속성들을 이용할 수 있다.
+
+            1. DOM객체의 메서드
+             1) firstChild, lastChild, childNodes, ...
+             2) contains(), appendChild(), removeChild(), ...
+        */
+        
+    </script>
+    <script src="./js/09_window.js"></script>
 </body>
 </html>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
