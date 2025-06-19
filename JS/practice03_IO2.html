@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>실습문제2</title>
-<style>
-	#result {
-		background:yellowgreen;
-		border:1px solid black;
-		height:200px;
-	}
-	#productAmount {
-		width:100px;
-	}
-</style>
+	<meta charset="UTF-8">
+	<title>실습문제2</title>
+	<style>
+		#result {
+			background:yellowgreen;
+			border:1px solid black;
+			height:200px;
+		}
+		#productAmount {
+			width:100px;
+		}
+	</style>
 </head>
 <body>
 	<h2>@실습문제2</h2>
@@ -54,11 +54,21 @@
 	</form>
 	<script type="text/javascript">
 		function showVal(){
-			
+			const level = document.querySelector("#productLevel");
+			const pVal = document.querySelector("#pVal");
+			pVal.innerHTML = level.value;
 		}
 
 		function printProduct(){
-
+			const product = document.querySelector("#productName");
+			const amount = document.querySelector("#productAmount");
+			const level = document.querySelector("#productLevel");
+			const message = document.querySelector("#message");
+			
+			const str = "상품명 : "+product.value+"\n납품수량 : "+amount.value
+				 	    +"\n납품등급 : "+level.value+"\n기타사항 : "+message.value;
+			
+			window.confirm(str+"\n입력하신 정보가 맞습니까?");
 		}
   </script>
 </body>
