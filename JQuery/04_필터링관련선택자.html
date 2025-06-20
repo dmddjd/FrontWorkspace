@@ -66,5 +66,46 @@
             $("h4")[2].innerHTML = "js 객체"; // 해당 인덱스 객체를 JS 객체로 꺼내옴
         })
     </script>
+
+    <div class="wrapper">
+        <p>안녕1</p>
+        <p>안녕2</p>
+        <p>안녕3</p>
+        <p>안녕4</p>
+        <p>안녕5</p>
+        <p>안녕6</p>
+        <p><a href="#">안녕7</a></p>
+        <p>안녕8</p>
+        <p>안녕9</p>
+        <p>안녕10</p>
+    </div>
+    <input type="button" value=":eq()" onclick="test2();">
+    <input type="button" value=":gt() :lt()" onclick="test3();">
+    <input type="button" value=":contains()" onclick="test4();">
+    <input type="button" value=":has()" onclick="test5();">
+    <input type="button" value=":not()" onclick="test6();">
+    <script>
+        function test2(){
+            $(".wrapper p").eq(2).css("color","red");
+        }
+        function test3(){
+            // gt(indet) lt(index)
+            $(".wrapper p:gt(2)").css("font-size","2em");
+            $(".wrapper p:lt(2)").css("font-size","2em");
+        }
+        function test4(){
+            // :contains : 특정 문자를 가진 태그 조회
+            // 
+            $(".wrapper p:contains('안녕8')").css("text-decoration","underline");
+        }
+        function test5(){
+            // :has(selector)
+            $(".wrapper p:has(a)").css("background","pink");
+        }
+        function test6(){
+            // :not(selector)
+            $(".wrapper p:not(:first-child)").css("color","green");
+        }
+    </script>
 </body>
 </html>

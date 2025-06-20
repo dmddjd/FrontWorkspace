@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_요소생성및제거</title>
+    <script src="resources/jQuery_3.7.1.js"></script>
+    <style>
+        .added {
+            color:green;
+        }
+        .item {
+            background:yellowgreen;
+            width:100px;
+            height:100px;
+            line-height:100px;
+            text-align:center;
+            margin:5px;
+        }
+        .item span {
+            font-size:25px;
+            font-weight:bold;
+            color:white;
+        }
+        .lime {
+            background:lime;
+        }
+    </style>
+</head>
+<body>
+    <h1>1. 요소 생성 및 제거</h1>
+    <h3>동적 요소 생성</h3>
+    <button id="but">요소 생성</button>
+    <div id="area1"></div>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                // jQuery박식 html요소 생성
+                const $p = ("<p></p>").text("Vreate By jQuery1");
+                $("#area").append($p, "<p>Create By jQuery2</p>");
+            });
+        });
+    </script>
+    <hr>
+
+    <h3>2-1. 삽입 관련 메서드</h3>
+    <pre>
+선택된 요소 기준으로 새로운 요소를 추기하는 메서드
+
+1. $(A).append(B) : A요소 뒤에 B를 추가하는 방식(자식)
+2. $(A).prepend(B) : A요소 앞에 B를 추가하는 방식(자식)
+3. $(A).before(B) : A요소 바로 뒤에 B를 추가하는 방식(동위)
+4. $(A).after(B) : A요소 바로 앞에 B를 추가하는 방식(동위)
+    </pre>
+    <hr>
+
+    <h3>2-2. 삽입 관련 메서드</h3>
+    <pre>
+1. $(B).appendTo(A) : B요소를 A요소 뒤에 추가(자식)
+2. $(B).prepnedTo(A) : B요소를 A요소 앞에 추가(자식)
+3. $(B).insertAfter(A) : B요소를 A요소 뒤에 추가(동위)
+4. $(B).insertBefore(A) : B요소를 A요소 앞에 추가(동위)
+    </pre>
+    <h1 id="test1">
+        <span>A</span>
+    </h1>
+    <h1 id="test2">
+        <span>A</span>
+    </h1>
+
+    <h1 id="test3">
+        <span>A</span>
+    </h1>
+    <h1 id="test4">
+        <span>A</span>
+    </h1>
+    <script>
+        $(function(){
+            // $("#test1").append("<span class='added'>B</span>")
+            // $("#test2").prepend("<span class='added'>B</span>")
+            // $("#test3").before("<h2 class='added'>B</h2>")
+            // $("#test4").after("<h2 class='added'>B</h2>")
+            
+            $("<span class='added'>B</span>").appendTo("#test1");
+            $("<span class='added'>B</span>").prependTo("#test2");
+            $("<span class='added'>B</span>").insertBefore("#test3");
+            $("<span class='added'>B</span>").insertAfter("#test4");
+        });
+    </script>
+    <hr>
+
+    <h3>3. 요소 객체 복제 메서드</h3>
+    <button id="clone">복제</button>
+    <div id="clone-test">
+        <!-- 복제할 요소 -->
+        <div id="item1" class="item">
+            <span>안녕</span>
+        </div>
+    </div>
+    <!-- 복제한 결과를 넣을 공간 -->
+    <div id="clone-result">
+    </div>
+    <script>
+        $(function(){
+            /*
+                $("선택자").clone(true/false)
+                 - 선택된 요소를 복제해서 반환하는 메서드
+                 - true전달시 선택된 요소의 이벤트 속성또한 함께 복사된다
+            */
+            // 복제할 요소에 이벤트 부여
+            $(".item").hover(function(){
+                $(this).addClass("lime");
+            },function(){
+                $(this).removeClass("lime");
+            })
+            
+            // 복제 버튼에 클릭 이벤트 부여
+            $("#clone").click(function(){
+                // 요소 이벤트 복제x
+                // const copy = $("#item1").clone();
+                // $("#clone-result").append(copy);
+                // 요소 이벤트 복제o
+                const copy = $("#item1").clone(true);
+                $("#clone-result").append(copy);
+
+                // 깊은복사 잘 이해안감 복습ㄱ
+                // const copy = $("#test1");
+                // $("#clone-result").append(copy);
+            })
+        });
+    </script>
+    <hr>
+
+    <h3>4. 요소 객체 제거 및 잘라내기 메서드</h3>
+    <button id="empty">empty</button>
+    <button id="remove">remove</button>
+    <button id="detach">detach</button>
+    <div id="remove-test" style="border:3px solid red; width:110px; height:110px;">
+        <!-- 제거할 요소 -->
+        <div id="item2" class="item">
+            <span>안녕</span>
+        </div>
+    </div>
+    <br>
+    
+    <div id="remove-result" style="border:3px solid blue; width:110px; height:110px;"></div>
+    <script>
+        $(function(){
+            /*
+                1. $("선택자").empty() : 선택된 요소의 하위요소를 모두 제거하는 메서드
+                2. $("선택자").remove() : 선택된 요소를 제거 후 제거된 요소를 반환하는 메서드
+                                          제거시 요소의 이벤트는 포함하지 않고 반환한다.
+                3. $("선택자").detach() : 선택된 요소를 화면상에서 제거 후 제거된 요소를 반환하는 메서드
+                                          제거시 요소의 이벤트도 포함하여 반환한다.
+            */
+            $("#empty").click(function(){
+                $("#remove-test").empty();
+            });
+            $("#remove").click(function(){
+                // $("#item2").remove();
+                const rm = $("#item2").remove();
+                $("#remove-result").append(rm);
+            });
+            $("#detach").click(function(){
+                const dt = $("#item2").detach();
+                $("#remove-result").append(dt);
+            });
+        });
+    </script>
+</body>
+</html>

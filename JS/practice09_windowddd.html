@@ -60,15 +60,27 @@
         function insertBoard(){
             const title = document.querySelector("input[name=title]");
             const content = document.querySelector("textarea[name=content]");
-            console.log(title.value,content.value);
 
-            const li = document.createElement("ul>li");
+            if(!(title.value && content.value)){
+                console.log("제목과 내용을 한 글자 이상 작성해주세요.");
+                return false;
+            }
+
+            const li = document.createElement("li");
             const h5 = document.createElement("h5");
             const p = document.createElement("p");
-
+            const titleTexteNode = document.createTextNode(title.value);
+            const contentTexteNode = document.createTextNode(content.value);
+            
             li.append(h5,p);
-            h5.appendChild(title);
-            p.appendChild(content);
+            h5.appendChild(titleTexteNode);
+            p.appendChild(contentTexteNode);
+
+            const boardList = document.querySelector("#boardList");
+            boardList.appendChild(li);
+
+            title.value = "";
+            content.value = "";
         }
         
         /* 
@@ -76,8 +88,22 @@
             검색내용을 비워둔후 재검색 눌렀을때는 전체 게시글목록이 나와야함.
         */
         function searchTitle(){
-            
-        };
+            const searchValue = document.querySelector("input[name=search]").value;
+            const boardList = document.querySelector("#boardList > li");
+
+            boardList.forEach(function(li){
+                // console.log(li.firstChild, li.lastChild, li.childNodes, li.children,);
+                const title = li.querySelector("h5").innerText;
+                const content = li.children[1].innerText;
+
+                if(title.includes(searchValue)){
+                    li.style.display = "block";
+                }else{
+                    li.style.display = "none";
+                }
+            });
+
+        }
     </script>
 
     <h1>게시글 목록</h1>
