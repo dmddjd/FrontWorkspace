@@ -12,8 +12,14 @@
     <h2>Method1</h2>
     <script>
         function add(){
+            $("table").append(
+                '<tr><td>'+ $('input[name=title]').val()+
+                '</td><td>' +  $('input[name=content]').val()+
+                '</td><td>' + $('input[name=owner]').val()+
+                '</td></tr>'
+            )
         }
-        </script>
+    </script>
     
     제목 : <input type="text" name="title" /> <br />
     내용 : <input type="text" name="content" /><br />
@@ -26,7 +32,8 @@
             <td> 작성자 </td>
         </tr>
     </table>
-
+    <hr>
+    
     <h2>Method2</h2>
     <script>
         var idx = 0;

@@ -40,14 +40,13 @@
                 게시글 제목 : <input type="text" name="title">
             </header>
             <section>
-                게시글 내용 : <textarea name="content"  cols="30" rows="10"></textarea>
+                게시글 내용 : <textarea name="content" cols="30" rows="10"></textarea>
             </section>
             <footer style="text-align: center;">
                 <input type="button" value="등록" onclick="insertBoard();">
             </footer>
         </div>
     </fieldset>
-
     <script>
         /* 
             등록버튼 클릭시 작성한 게시글 제목과 게시글 내용을 ul태그안에 
@@ -60,15 +59,26 @@
         function insertBoard(){
             const title = document.querySelector("input[name=title]");
             const content = document.querySelector("textarea[name=content]");
-            console.log(title.value,content.value);
-
-            const li = document.createElement("ul>li");
+            if(!(title.value && content.value)){
+                console.log("제목과 내용을 작성해 주세요.");
+                return false;
+            }
+           
+            const li = document.createElement("li");
             const h5 = document.createElement("h5");
             const p = document.createElement("p");
-
+            const titleText = document.createTextNode(title.value);
+            const contentText = document.createTextNode(content.value);
+           
             li.append(h5,p);
-            h5.appendChild(title);
-            p.appendChild(content);
+            h5.appendChild(titleText);
+            p.appendChild(contentText);
+
+            const boardList = document.querySelector("#boardList");
+            boardList.appendChild(li);
+
+            title.value = "";
+            content.value = "";
         }
         
         /* 
@@ -76,7 +86,19 @@
             검색내용을 비워둔후 재검색 눌렀을때는 전체 게시글목록이 나와야함.
         */
         function searchTitle(){
-            
+            const searchBar = document.querySelector("input[name=search]");
+            const boardList = document.querySelectorAll("#boardList>li");
+
+            boardList.forEach(function(li){
+                const title = li.querySelector("h5").innerText;
+                const content = li.querySelector("p").innerText;
+
+                if(title.includes(searchBar.value)){
+                    li.style.display = "block";
+                }else{
+                    li.style.display = "none";
+                };
+            });
         };
     </script>
 

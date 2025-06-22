@@ -9,7 +9,7 @@
 <body>
     <h1>Content영역(innerHTML, innerText)관련 메서드</h1>
 
-    <h3>html()</h3>
+    <h3>1. html()</h3>
     <div id="test1">네이버로</div>
     <div id="test2"></div>
     <script>
@@ -26,16 +26,17 @@
     <div class="class1">test</div>
     <script>
         $(function(){
-            // $(".class1").html("<h1>돼지</h1>");
+            $(".class1").html("<span>돼지</span>");
             $(".class1").html(function(index, item){
                 // function의 첫 번째 인자는 index
                 // function의 두 번째 인자는 item(선택된 요소의 innerHTML이 전달된다.)
-                return "<div>현재인덱스 "+index+"</div>"     
+                return "<div>현재인덱스 : "+index+" / item : "+item+"</div>"     
             });
         });
     </script>
     <br>
 
+    <h3>2. text()</h3>
     <div class="class2">test1</div>
     <div class="class2">test2</div>
     <div class="class2">test3</div>

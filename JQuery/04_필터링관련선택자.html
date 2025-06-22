@@ -46,10 +46,11 @@
     <hr>
 
     <h3>2. 필터링과 관련된 메소드</h3>
-    <p>
-        기준이 되는 요소 중에서 특정 요소만을 걸러서 선택해주는 메소드 <br>
-        first(), last(), filter(), eq(), not()
-    </p>
+    <pre>
+기준이 되는 요소 중에서 특정 요소만을 걸러서 선택해주는 메소드
+
+first(), last(), filter(), eq(), not()
+    </pre>
     <h4 class="test">test-1</h4>
     <h4 class="test">test-2</h4>
     <h4 class="test">test-3</h4>
@@ -66,6 +67,7 @@
             $("h4")[2].innerHTML = "js 객체"; // 해당 인덱스 객체를 JS 객체로 꺼내옴
         })
     </script>
+    <hr>
 
     <div class="wrapper">
         <p>안녕1</p>
@@ -79,30 +81,29 @@
         <p>안녕9</p>
         <p>안녕10</p>
     </div>
-    <input type="button" value=":eq()" onclick="test2();">
-    <input type="button" value=":gt() :lt()" onclick="test3();">
-    <input type="button" value=":contains()" onclick="test4();">
-    <input type="button" value=":has()" onclick="test5();">
-    <input type="button" value=":not()" onclick="test6();">
+    <input type="button" value=":eq()" onclick="test1();">
+    <input type="button" value=":gt() :lt()" onclick="test2();">
+    <input type="button" value=":contains()" onclick="test3();">
+    <input type="button" value=":has()" onclick="test4();">
+    <input type="button" value=":not()" onclick="test5();">
     <script>
-        function test2(){
+        function test1(){
             $(".wrapper p").eq(2).css("color","red");
         }
-        function test3(){
-            // gt(indet) lt(index)
+        function test2(){
+            // gt(index) lt(index)
             $(".wrapper p:gt(2)").css("font-size","2em");
             $(".wrapper p:lt(2)").css("font-size","2em");
         }
-        function test4(){
+        function test3(){
             // :contains : 특정 문자를 가진 태그 조회
-            // 
             $(".wrapper p:contains('안녕8')").css("text-decoration","underline");
         }
-        function test5(){
+        function test4(){
             // :has(selector)
             $(".wrapper p:has(a)").css("background","pink");
         }
-        function test6(){
+        function test5(){
             // :not(selector)
             $(".wrapper p:not(:first-child)").css("color","green");
         }

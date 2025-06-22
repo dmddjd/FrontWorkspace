@@ -28,16 +28,16 @@
     </style>
 </head>
 <body>
-    <h1>1. 요소 생성 및 제거</h1>
-    <h3>동적 요소 생성</h3>
-    <button id="but">요소 생성</button>
+    <h1>요소 생성 및 제거</h1>
+    <h3>1. 동적 요소 생성</h3>
+    <button id="btn">요소 생성</button>
     <div id="area1"></div>
     <script>
         $(function(){
             $("#btn").click(function(){
                 // jQuery박식 html요소 생성
-                const $p = ("<p></p>").text("Vreate By jQuery1");
-                $("#area").append($p, "<p>Create By jQuery2</p>");
+                const $p = $("<p></p>").text("Create By jQuery1");
+                $("#area1").append($p, "<p>Create By jQuery2</p>");
             });
         });
     </script>
@@ -45,7 +45,7 @@
 
     <h3>2-1. 삽입 관련 메서드</h3>
     <pre>
-선택된 요소 기준으로 새로운 요소를 추기하는 메서드
+선택된 요소 기준으로 새로운 요소를 추가하는 메서드
 
 1. $(A).append(B) : A요소 뒤에 B를 추가하는 방식(자식)
 2. $(A).prepend(B) : A요소 앞에 B를 추가하는 방식(자식)
@@ -76,57 +76,54 @@
     </h1>
     <script>
         $(function(){
-            // $("#test1").append("<span class='added'>B</span>")
-            // $("#test2").prepend("<span class='added'>B</span>")
-            // $("#test3").before("<h2 class='added'>B</h2>")
-            // $("#test4").after("<h2 class='added'>B</h2>")
+            $("#test1").append("<span class='added'>B</span>")
+            $("#test2").prepend("<span class='added'>B</span>")
+            $("#test3").before("<h2 class='added'>B</h2>")
+            $("#test4").after("<h2 class='added'>B</h2>")
             
-            $("<span class='added'>B</span>").appendTo("#test1");
-            $("<span class='added'>B</span>").prependTo("#test2");
-            $("<span class='added'>B</span>").insertBefore("#test3");
-            $("<span class='added'>B</span>").insertAfter("#test4");
+            $("<span class='added'>C</span>").appendTo("#test1");
+            $("<span class='added'>C</span>").prependTo("#test2");
+            $("<span class='added'>C</span>").insertBefore("#test3");
+            $("<span class='added'>C</span>").insertAfter("#test4");
         });
     </script>
     <hr>
 
     <h3>3. 요소 객체 복제 메서드</h3>
-    <button id="clone">복제</button>
+    <button id="btn2">복제</button>
+
     <div id="clone-test">
         <!-- 복제할 요소 -->
-        <div id="item1" class="item">
+        <div id="origin" class="item">
             <span>안녕</span>
         </div>
     </div>
     <!-- 복제한 결과를 넣을 공간 -->
-    <div id="clone-result">
-    </div>
+    <div id="clone"></div>
+
     <script>
-        $(function(){
+        $(function () {
             /*
                 $("선택자").clone(true/false)
                  - 선택된 요소를 복제해서 반환하는 메서드
-                 - true전달시 선택된 요소의 이벤트 속성또한 함께 복사된다
+                 - true전달시 선택된 요소의 이벤트속성또한 함께 복사된다.
             */
             // 복제할 요소에 이벤트 부여
-            $(".item").hover(function(){
-                $(this).addClass("lime");
-            },function(){
-                $(this).removeClass("lime");
-            })
-            
-            // 복제 버튼에 클릭 이벤트 부여
-            $("#clone").click(function(){
-                // 요소 이벤트 복제x
-                // const copy = $("#item1").clone();
-                // $("#clone-result").append(copy);
-                // 요소 이벤트 복제o
-                const copy = $("#item1").clone(true);
-                $("#clone-result").append(copy);
+            $("#origin").hover(function() {
+                $(this).addClass('lime');
+            },function() {
+                $(this).removeClass('lime');
+            });
 
-                // 깊은복사 잘 이해안감 복습ㄱ
-                // const copy = $("#test1");
-                // $("#clone-result").append(copy);
-            })
+            // 복제버튼 클릭 이벤트 부여
+            $("#btn2").click(function() {
+                // 이벤트 복사x
+                // const copy = $("#origin").clone();
+                // $("#clone").append(copy);
+                // 이벤트 복사O, 깊은복사
+                const copy = $("#origin").clone(true);
+                $("#clone").append(copy);
+            });
         });
     </script>
     <hr>

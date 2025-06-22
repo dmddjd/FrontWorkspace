@@ -10,10 +10,17 @@
 </head>
 <body>
     <h2>Event 1</h2>
-    <script>
-        
+    <script>     
+        $(function(){
+            $("select[name=number]").change(function(){
+                if($(this).val()){
+                    $("#selNum").text($(this).val()+"번");
+                }else{
+                    $("#selNum").text("== 선택 ==");
+                }
+            });
+        });
     </script>
-    
     <select name="number">
         <option value="">== 선택 == </option>
         <option value="1">1번</option>
@@ -26,7 +33,14 @@
 
     <h2>Event 2</h2>
     <script>
-        
+        $(function(){
+            $("#event2").on("click","tr",function(){
+                $("#s1").text($(this).children().eq(0).html());
+                $("#s2").text($(this).children().eq(1).html());
+                $("#s3").text($(this).children().eq(2).html());
+                $("#s4").text($(this).children().eq(3).html());
+            })
+        });
     </script>
     
     <table id="event2" border="1">
@@ -40,12 +54,21 @@
         <span id="s2"></span> / 
         <span id="s3"></span> / 
         <span id="s4"></span>
-
     <hr>
     
     <h2>Event 3</h2>
     <script>
-    
+    $(function(){
+            $("#event3").on("click","tr",function(){
+                $("#s5").text($(this).children().eq(0).html());
+                $("#s6").text($(this).children().eq(1).html());
+                $("#s7").text($(this).children().eq(2).html());
+                $("#s8").text($(this).children().eq(3).html());
+
+                $(this).css("background","red");
+                $(this).siblings().css("background","");
+            })
+        });
     </script>
 
     <table id="event3" border="1">
